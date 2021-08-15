@@ -1,0 +1,15 @@
+<button mat-icon-button matTooltip="Bookmarks" id="bookmarks-icon" [matMenuTriggerFor]="bookmarksMenu">
+  <mat-icon class="star-icon" (click)="menuIsClosed = false" [ngStyle]="{'color': menuIsClosed ? null : '#0096DB' }">star_rate</mat-icon>
+</button>
+
+<mat-menu #bookmarksMenu="matMenu" id="bookmarks-form"
+(closed)="closed()" xPosition="before" [overlapTrigger]="false">
+  <div class="bookmarks-container" (click)="$event.stopPropagation()">
+    <cloudinn-bookmarks-form
+      [bookmarks]="bookmarks"
+      [mode]="modeType.CREATE"
+      (close)="closeMenu($event)">
+        <button mat-raised-button color="primary" (click)="openDialog()">{{ 'Bookmarks' | translate }}</button>
+    </cloudinn-bookmarks-form>
+  </div>
+</mat-menu>

@@ -1,0 +1,349 @@
+.date-icon {
+    margin-right: 4px;
+    top         : 19px;
+    width       : 15px;
+    height      : 15px;
+    opacity     : 1;
+}
+
+span.date-container {
+    top           : 18px;
+    height        : 16px;
+    text-align    : center;
+    letter-spacing: 0;
+    color         : #231F20;
+    opacity       : 1;
+    margin        : 1%;
+}
+
+::ng-deep .alert-snackbar {
+    background-color: #fff;
+    color           : #000;
+}
+
+::ng-deep .mat-simple-snackbar-action {
+    color: #2196F3
+}
+
+.btn {
+    font          : 500 12px/16px Avenir;
+    letter-spacing: 0;
+    color         : #231F20;
+    opacity       : 1;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.instance-name {
+    font: 500 18px/25px Avenir !important;
+}
+
+.btn .mat-icon {
+    margin-right: 4px;
+    top         : 19px;
+    width       : 15px;
+    height      : 15px;
+    opacity     : 1;
+}
+
+.btn.mat-button {
+    min-width: 98px;
+    padding  : 10px;
+}
+
+.page-title {
+    letter-spacing: 0;
+    padding       : 10px 0 0 20px;
+}
+
+.page-title a {
+    text-decoration: none;
+    font           : bolder 18px/25px Roboto;
+    color          : #239ac7;
+}
+
+.mat-toolbar {
+    border          : 1px solid #70707057;
+    background-color: #FFFFFF;
+    font            : 500 12px/16px Avenir;
+    top             : 0px;
+    left            : 0px;
+    width           : 100%;
+    text-align      : center;
+    height          : fit-content;
+    flex-wrap       : wrap;
+}
+
+.material-icons.sized-icon {
+    font-size   : 17px;
+    margin-right: 4px;
+}
+
+.brand-mob {
+    color      : #b4bcc8;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size  : 14px;
+}
+
+.date-mob {
+    color      : #b4bcc8;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size  : 12px;
+}
+
+.lines {
+    display    : block;
+    line-height: 20px;
+}
+
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+    display: none;
+}
+
+.mat-drawer {
+    background-color: #fff !important;
+}
+
+.mat-sidenav {
+    height: 100% !important;
+    width : 20%;
+}
+
+.mat-drawer {
+    background-color: rgb(242, 240, 248);
+}
+
+.mat-sidenav-container {
+    z-index : -2;
+    bottom  : 0;
+    left    : 0;
+    position: absolute;
+    right   : 0;
+    top     : 62px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.item-text {
+    flex                : 1 100%;
+    padding-inline-start: 8px;
+}
+
+.img-icon {
+    width : 24px;
+    height: 24px;
+}
+
+.user-icon {
+    background-color: transparent;
+    border          : none;
+    padding-top     : 8px;
+}
+
+.user-name {
+    font-size  : 12px;
+    font-weight: 400;
+}
+
+.item {
+    display       : flex;
+    flex-direction: row;
+}
+
+.item.imag_container {
+    justify-content: flex-start;
+    align-items    : center;
+    display        : flex;
+    flex-direction : row;
+}
+
+.figuer {
+    margin-left: 1em;
+    width      : 120px;
+    height     : 40px;
+    display    : block;
+}
+
+.flag-icon {
+    border-radius: 10%;
+    height       : 22px;
+    width        : 22px;
+    margin       : 0px 4px 0px 4px;
+}
+
+.apps_title {
+    margin-left: 10px;
+}
+
+.menu_apps {
+    box-sizing    : border-box;
+    display       : flex;
+    align-items   : center;
+    flex-direction: row;
+}
+
+.active {
+    background-color: #eee !important;
+}
+
+iframe {
+    position: absolute;
+    top     : 0;
+    left    : 0;
+    width   : 100%;
+    height  : 100%;
+}
+
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+    display: none;
+}
+
+::ng-deep .mat-form-field-infix {
+    width: auto;
+}
+
+.mat-drawer {
+    background-color: #fff !important;
+}
+
+.mat-sidenav {
+    height: 100% !important;
+    width : 20%;
+}
+
+.mat-drawer {
+    background-color: rgb(242, 240, 248);
+}
+
+.item-text {
+    flex                : 1 100%;
+    padding-inline-start: 8px;
+}
+
+.img-icon {
+    width : 24px;
+    height: 24px;
+}
+
+.user-icon {
+    background-color: transparent;
+    border          : none;
+    padding-top     : 8px;
+}
+
+.flag-icon {
+    border-radius: 10%;
+    height       : 22px;
+    width        : 22px;
+    margin       : 0px 4px 0px 4px;
+}
+
+.user_data {
+    margin    : 0 10px !important;
+    text-align: center;
+}
+
+.apps_title {
+    margin-left: 10px;
+}
+
+.menu_apps {
+    box-sizing    : border-box;
+    display       : flex;
+    align-items   : center;
+    flex-direction: row;
+}
+
+.instance_logo {
+    margin-bottom: -8px;
+    margin-top   : 7px;
+    cursor       : pointer;
+}
+
+.cpyLink {
+    border          : 1px solid #b4bcc8;
+    cursor          : pointer;
+    position        : fixed;
+    top             : 95%;
+    left            : 3%;
+    background-color: white;
+    font-weight     : bold;
+    z-index         : 1000;
+}
+
+::ng-deep #style-3 .mat-drawer-inner-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color  : #F5F5F5;
+}
+
+::ng-deep #style-3 .mat-drawer-inner-container::-webkit-scrollbar {
+    width           : 6px;
+    background-color: #F5F5F5;
+}
+
+::ng-deep #style-3 .mat-drawer-inner-container::-webkit-scrollbar-thumb {
+    background-color: #a0a0a0;
+}
+
+.center {
+    position         : absolute;
+    top              : 50%;
+    left             : 50%;
+    -moz-transform   : translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform        : translateX(-50%) translateY(-50%);
+}
+
+.material-icons.sized-icon.apps-icon:hover {
+    color: #0096DB;
+}
+
+.audit-date {
+    margin-right: 0.5%;
+}
+.walkthrough-information-button
+{
+  background: #1490C0;
+  padding:2px 8px;;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 .5rem;
+  display: flex;
+}
+.walkthrough-information-button mat-icon
+{
+  color: #fff;
+  font-size: 24px;
+}
+.img-responsive {
+    width : 100%;
+    height: 100%;
+}
+#language-switcher{
+    width: 20% !important;
+}
+@media (max-width: 600px){
+  .btn.mat-button{
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+  }
+  .audit-date {
+    padding: 10px;
+    span {
+      width: 100%;
+    }
+  }
+  .material-icons.sized-icon {
+    margin-right: 8px;
+  }
+  .btn .mat-icon{
+    width: unset;
+  }
+}

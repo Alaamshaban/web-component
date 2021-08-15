@@ -1,0 +1,21 @@
+::ng-deep.mat-menu-panel {
+  max-width: 100% !important;
+}
+::ng-deep.mat-menu-panel#mat-menu-panel-0 {
+  min-width: 226px;
+}
+
+.bookmarks-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 10px 20px;
+}
+
+.star-icon{
+  font-size: 18px;
+}
+
+.material-icons.star-icon:hover{
+  color: #0096DB;
+}

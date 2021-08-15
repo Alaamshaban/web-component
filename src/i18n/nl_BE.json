@@ -1,0 +1,16 @@
+{
+    "Actions": "Acties",
+    "Add": "Toevoegen",
+    "Bookmarks": "Bookmarks",
+    "Close": "Sluiten",
+    "Invalid URL": "Ongeldige URL",
+    "Name": "Naam",
+    "Name is required": "Naam is verplicht",
+    "Select Shortcut": "Selecteer snelkoppeling",
+    "Shortcut": "Snelkoppeling",
+    "Shortcut is required": "Snelkoppeling is vereist",
+    "URL": "URL",
+    "URL is required": "URL is verplicht",
+    "Update": "Bijwerken",
+    "confirmation_messg": "Bent u zeker om deze actie uit te voeren?"
+}

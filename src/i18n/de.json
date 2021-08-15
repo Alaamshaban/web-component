@@ -1,0 +1,18 @@
+{
+    "Actions": ".Optionen",
+    "Add": ".Hinzufügen",
+    "Bookmarks": ".Lesezeichen",
+    "Close": ".Schließen",
+    "Invalid URL": ".Ungültige URL",
+    "Name": ".Name",
+    "Name is required": ".Name ist Pflichtfeld",
+    "Select Shortcut": ".Shortcut wählen",
+    "Shortcut": ".Shortcut",
+    "Shortcut is required": ".Shortcut erforderlich",
+    "URL": ".URL",
+    "URL is required": ".URL-Angabe erforderlich",
+    "Update": ".Aktualisieren",
+    "confirmation_messg": ".confirmation_messg",
+    "Select Instance": ".Fall auswählen",
+    "Audit Date": ""
+}

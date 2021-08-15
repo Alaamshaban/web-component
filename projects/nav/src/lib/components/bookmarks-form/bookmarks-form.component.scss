@@ -1,0 +1,19 @@
+
+.star-icon:hover {
+  color: yellow !important;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-success {
+  background-color: green;
+  color: white;
+}

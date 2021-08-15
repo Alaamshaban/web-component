@@ -1,0 +1,82 @@
+<ng-container *ngIf="!editedBookmark && !createNew">
+  <div class="container">
+    <div class="header" *ngIf="showCloseButton">
+      <button mat-icon-button (click)="_close()">
+          <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="title">
+      <h4>{{ 'Bookmarks' | translate }}</h4>
+    </div>
+    <div style="margin: 10px 0">
+      <hr>
+      <button style="position: relative; bottom: 30px;" mat-mini-fab color="primary" (click)="openCreateNewBookmarkForm()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div class="table">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> {{'Name' | translate}} </th>
+          <td mat-cell *matCellDef="let element"> {{element?.name}} </td>
+        </ng-container>
+
+        <!-- URL Column -->
+        <ng-container matColumnDef="url">
+          <th mat-header-cell *matHeaderCellDef> {{'URL' | translate}} </th>
+          <td mat-cell *matCellDef="let element">
+            <a [href]="element.url" target="_blank" style="text-decoration: none; color: rgba(0,0,0,.87);">{{element?.url}}</a>
+          </td>
+        </ng-container>
+
+        <!-- ShortCut Column -->
+        <ng-container matColumnDef="key">
+          <th mat-header-cell *matHeaderCellDef> {{'Shortcut' | translate}} </th>
+          <td mat-cell *matCellDef="let element"> {{element?.key}} </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> {{'Actions' | translate}} </th>
+          <td mat-cell *matCellDef="let element">
+            <div style="display: flex; align-items: center">
+              <button mat-icon-button (click)="editBookmark(element)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="openDeleteConfirmationDialog(element)" [disabled]="loading(element.id)">
+                <mat-spinner *ngIf="loading(element.id)" [diameter]="25"></mat-spinner>
+                <mat-icon *ngIf="!loading(element.id)">delete</mat-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</ng-container>
+
+
+<!-- update -->
+<ng-container *ngIf="editedBookmark">
+  <cloudinn-bookmarks-form
+  [bookmarks]="dataSource"
+  [editedBookmark]="editedBookmark"
+  [mode]="modeType.UPDATE"
+  (close)="finishEditing()"
+></cloudinn-bookmarks-form>
+</ng-container>
+
+<!-- update -->
+<ng-container *ngIf="createNew">
+  <cloudinn-bookmarks-form
+  [bookmarks]="dataSource"
+  [editedBookmark]="editedBookmark"
+  [mode]="modeType.CREATE"
+  (close)="finishCreating()"
+></cloudinn-bookmarks-form>
+</ng-container>

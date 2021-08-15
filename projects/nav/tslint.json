@@ -1,0 +1,17 @@
+{
+    "extends": "../../tslint.json",
+    "rules": {
+        "directive-selector": [
+            true,
+            "attribute",
+            "cloudinn",
+            "camelCase"
+        ],
+        "component-selector": [
+            true,
+            "element",
+            "cloudinn",
+            "kebab-case"
+        ]
+    }
+}

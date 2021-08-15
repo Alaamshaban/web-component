@@ -1,0 +1,43 @@
+.nav-head{
+    padding: 0 24px 0 0 !important;
+    background-color: #fff;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-left: -5px;
+  }
+
+  .nav-item{
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+  .nav-panel{
+    margin-top: -10px !important;
+    border-bottom: 1px solid #d6d6d6;
+  }
+ .nav-item:hover{
+    background-color: #d6d6d6;
+  }
+  .selected{
+    background-color: #d6d6d6 !important;
+  }
+  .nav-link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding:6px 0px 6px 6px;
+  }
+  .title{
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+  ::ng-deep .mat-expansion-panel:not([class*=mat-elevation-z]){
+    box-shadow: none !important
+  }
+  .sub-page{
+    margin-right:10px !important;
+  }
+  ::ng-deep .nav-panel .mat-expansion-panel-body{
+    padding:0 24px 30px !important;
+    margin-bottom: -6px !important;
+    overflow-y: hidden !important;
+  }

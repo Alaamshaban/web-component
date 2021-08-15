@@ -1,0 +1,82 @@
+{
+  "/api/bookmarks": {
+    "target": "https://test.cloudinn.net",
+    "secure": false,
+    "logLevel":"debug",
+    "changeOrigin": true,
+    "headers": {
+      "host":"test.cloudinn.net",
+      "Referer": "https://test.cloudinn.net"
+    }
+  },
+  "/shadowinn": {
+    "target": "https://test.cloudinn.net",
+    "secure": false,
+    "logLevel":"debug",
+    "changeOrigin": true,
+    "headers": {
+      "host":"test.cloudinn.net",
+      "Referer": "https://test.cloudinn.net"
+    }
+  },
+  "/api/core": {
+    "target": "https://test.cloudinn.net",
+    "secure": false,
+    "logLevel":"debug",
+    "changeOrigin": true,
+    "headers": {
+      "host":"test.cloudinn.net",
+      "Referer": "https://test.cloudinn.net"
+    }
+  },
+  "/api/clients": {
+    "target": "https://test.cloudinn.net",
+    "secure": false,
+    "logLevel":"debug",
+    "changeOrigin": true,
+    "headers": {
+      "host":"test.cloudinn.net",
+      "Referer": "https://test.cloudinn.net"
+    }
+  },
+  "/static/img": {
+    "target": "https://test.cloudinn.net",
+    "secure": false,
+    "logLevel":"debug",
+    "changeOrigin": true,
+    "headers": {
+      "host":"test.cloudinn.net",
+      "Referer": "https://test.cloudinn.net"
+    }
+  },
+  "/account/login/": {
+    "target": "https://test.cloudinn.net",
+    "secure": false,
+    "logLevel":"debug",
+    "changeOrigin": true,
+    "headers": {
+      "host":"test.cloudinn.net",
+      "Referer": "https://test.cloudinn.net"
+    }
+  },
+  "/instance/": {
+    "target": "https://test.cloudinn.net",
+    "secure": false,
+    "logLevel":"debug",
+    "changeOrigin": true,
+    "headers": {
+      "host":"test.cloudinn.net",
+      "Referer": "https://test.cloudinn.net"
+    }
+  },
+  "/core": {
+    "target": "https://test.cloudinn.net",
+    "secure": false,
+    "logLevel":"debug",
+    "changeOrigin": true,
+    "headers": {
+      "host":"test.cloudinn.net",
+      "Referer": "https://test.cloudinn.net"
+    }
+  }
+}

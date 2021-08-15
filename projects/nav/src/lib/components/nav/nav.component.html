@@ -1,0 +1,178 @@
+<div class="mat-typography" *ngIf="userData" dir="{{languages[0]?.code==='ar'?'rtl':'ltr'}}">
+    <div class="navbar-container">
+
+        <button mat-button (click)="copyLink()" class="cpyLink" *ngIf="userData?.is_staff && isTouchScreen()">Copy
+            Link</button>
+        <ng-container>
+            <mat-toolbar id="nav-toolbar" *ngIf="!isPopup" fxFlexLayout="row wrap">
+                <!---------side nav menu icon ----------->
+                <div>
+                    <button fxHide.xs *ngIf="navData.showSideNav" id="side-nav-burger-menu-icon" fxFlex="30px"
+                        fxFlexAlign="center" mat-icon-button (click)="toggleSidenav()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+
+                <!---------logo ----------->
+                <div fxLayout="row" fxFlex="1 1 auto" fxLayoutAlign="space-around center">
+                    <div class="item imag_container" fxFlex="shrink" fxFlex.xs="center center">
+                        <figure style="margin: 10px">
+                            <a href="/" class="brand" id="instance-logo" class="figuer">
+                                <img [src]="insatnce_logo?insatnce_logo:'assets/logo.svg'" class="img-responsive"
+                                    alt="CloudInn Logo">
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="walkthrough-information-button" onclick="userGuiding.hideChecklist(12286, { itemsShown:true }); userGuiding.launchChecklist(12286); userGuiding.expandChecklist(12286);">
+                  <mat-icon>info</mat-icon>
+                </div>
+                <!---------audit date section ----------->
+                <div class="item audit-date" fxHide.xs>
+                    <mat-icon class="sized-icon date-icon">calendar_today</mat-icon>
+                    <span>
+                        <span class="date-container">{{'Audit Date' | translate}}</span>
+                        <span class="date-container" id="audit-date">{{auth.auditDate}}</span>
+                    </span>
+                </div>
+
+                <!---------username section ----------->
+                <button fxHide.xs mat-button [matMenuTriggerFor]="user" class="btn" id="user-name-icon">
+                    <mat-icon class="sized-icon">account_circle</mat-icon>
+                    <span>{{userData?.username}}</span>
+                </button>
+
+                <!---------apps section ----------->
+                <div fxFlexAlign="center" fxLayout="row">
+                    <button mat-icon-button id="modules-icon" [matMenuTriggerFor]="appsMenu" #t="matMenuTrigger">
+                        <mat-icon class="sized-icon apps-icon" [ngStyle]="{'color': t.menuOpen ? '#0096DB' : null }">
+                            apps</mat-icon>
+                    </button>
+
+                    <button mat-icon-button [matMenuTriggerFor]="dropMenu" fxHide fxShow.xs>
+                        <mat-icon>menu</mat-icon>
+                    </button>
+
+                    <!---------bookmarks section ----------->
+                    <cloudinn-bookmarks fxHide.xs></cloudinn-bookmarks>
+
+
+                    <button fxHide.xs mat-icon-button id="language-switcher" [matMenuTriggerFor]="langMenu">
+                        <span class="flag-icon flag-icon-{{languages[0]?.country| lowercase}}"></span>
+                    </button>
+                </div>
+
+                <!---------instance name section ----------->
+                <div fxFlexAlign="center" fxLayout="row" fxHide.xs>
+                    <button mat-button (click)="openDialog()" id="instance-selector" class="btn instance-name">
+                        {{ instance }}
+                    </button>
+                </div>
+
+                <div fxFlexAlign="center" fxLayout="row" fxHide.xs>
+                </div>
+
+            </mat-toolbar>
+        </ng-container>
+    </div>
+    <ng-container *ngIf="navData.showSideNav && navData.sideNavType==='default'">
+        <mat-sidenav-container>
+            <mat-sidenav id="style-3" id="side-nav-container" [opened]="navData.isOpenedByDefault" #sidenav
+                [mode]="(isMobileResolution$ | async)? 'over' : navData.mode ">
+                <div class="brand page-title">
+                    <a [routerLink]="navData.path">{{navData.title}}</a>
+                </div>
+                <mat-nav-list>
+                    <div *ngFor="let navItem of navData.sideNav">
+                        <cloudinn-sidenav-item [navItem]="navItem"></cloudinn-sidenav-item>
+                    </div>
+                </mat-nav-list>
+            </mat-sidenav>
+            <mat-sidenav-content>
+                <div class="container-fluid">
+                    <ng-container *ngIf="!navData.showIframe">
+                        <router-outlet>
+                            <ng-content></ng-content>
+                        </router-outlet>
+                    </ng-container>
+                    <div *ngIf="navData.showIframe">
+                        <iframe [src]="navData.path | safe" WIDTH='80%' HEIGHT='100%' frameborder="0">
+                        </iframe>
+                    </div>
+                </div>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </ng-container>
+
+
+    <ng-container *ngIf="navData.showSideNav && navData.sideNavType==='new'">
+            <cloudinn-new-side-nav [navData]="navData" [language]="languages[0]?.code" [changeLanguage]="changeLanguage" [isMobileResolution$]="isMobileResolution$">
+            </cloudinn-new-side-nav>
+    </ng-container>
+
+    <!-- responsive menu-->
+    <mat-menu #dropMenu="matMenu">
+        <!---------audit date section ----------->
+        <div class="item audit-date">
+            <mat-icon class="sized-icon date-icon">calendar_today</mat-icon>
+            <span>
+                <span class="date-container">{{'Audit Date' | translate}}</span>
+                <span class="date-container" id="audit-date">{{auth.auditDate}}</span>
+            </span>
+        </div>
+        <!---------username section ----------->
+        <button mat-menu-item mat-button [matMenuTriggerFor]="user" class="btn" id="user-name-icon">
+            <mat-icon class="sized-icon">account_circle</mat-icon>
+            <span>{{userData?.username}}</span>
+        </button>
+        <!---------instance name section ----------->
+        <div fxFlexAlign="center" fxLayout="row">
+            <button mat-menu-item mat-button (click)="openDialog()" id="instance-selector" class="btn instance-name">
+                {{ instance }}
+            </button>
+        </div>
+        <!---------language switcher section ----------->
+        <button mat-menu-item mat-icon-button id="language-switcher" [matMenuTriggerFor]="langMenu">
+            <span class="flag-icon flag-icon-{{languages[0]?.country| lowercase}}"></span>
+        </button>
+
+    </mat-menu>
+
+    <!--user-menu-->
+    <mat-menu #user="matMenu" xPosition="before" [overlapTrigger]="false" id="user-menu">
+        <a mat-menu-item class="menu-row" *ngFor="let item of userMenu"
+            (click)="navService.goToPath(item,'Reservation')">
+            <span class="item-text">{{item.title}}</span>
+        </a>
+        <a mat-menu-item class="menu-row" (click)="logOut()">
+            <span class="item-text">Log Out</span>
+        </a>
+    </mat-menu>
+
+    <!--apps menu-->
+    <mat-menu #appsMenu="matMenu" id="apps-menu" xPosition="before" [overlapTrigger]="false">
+        <a mat-menu-item *ngFor="let a of apps" href="{{a.path}}" class="menu_apps">
+            <ng-container *ngIf="a.icon">
+                <ng-container *ngIf="a.icon.includes('/'); then image; else icon">
+                </ng-container>
+                <ng-template #image>
+                    <img [src]="a.icon" [alt]="a.title" class="img-icon">
+                </ng-template>
+                <ng-template #icon>
+                    <mat-icon>{{ a.icon }}</mat-icon>
+                </ng-template>
+            </ng-container>
+            <span class="apps_title">{{ a.title }}</span>
+        </a>
+    </mat-menu>
+
+    <!--lang menu-->
+    <mat-menu #langMenu="matMenu" id="language-menu" xPosition="before" [overlapTrigger]="false">
+        <a mat-menu-item class="menu-row language-item" *ngFor="let language of languages; let index=index"
+            class="menu_apps" id="{{language?.code}}" (click)="set_lang(language?.code,index);">
+            <span class="flag-icon flag-icon-{{language?.country | lowercase}}" id="flag-icon-{{index}}"></span>
+            <span class="apps_title">{{language?.name}}</span>
+        </a>
+    </mat-menu>
+</div>

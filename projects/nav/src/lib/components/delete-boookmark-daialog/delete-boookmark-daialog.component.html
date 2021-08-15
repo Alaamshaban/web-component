@@ -1,0 +1,12 @@
+<div class="container">
+  <p>Are you sure you want to delete the bookmark {{name}}?</p>
+  <div class="actions">
+    <button mat-button style="background-color: #afafaf88; color: black; margin-right: 12px"
+    (click)="close()">
+      Cancel
+    </button>
+    <button mat-raised-button color="primary" (click)="delete()">
+      Delete
+    </button>
+  </div>
+</div>

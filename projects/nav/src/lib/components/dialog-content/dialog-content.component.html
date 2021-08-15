@@ -1,0 +1,27 @@
+<div mat-dialog-title id="instance-selector-header">
+    {{'Select Instance'}}
+    <button class="cancel-icon" mat-icon-button mat-dialog-close>
+    <mat-icon (click)="close()">close</mat-icon>
+    </button>
+</div>
+
+
+<mat-dialog-content class="mat-typography">
+    <form class="search-form">
+        <mat-form-field>
+            <input type="text" placeholder="{{'Search instance name' | translate}}" aria-label="Number" matInput [formControl]="selectInstanceCtrl">
+            <mat-icon matPrefix>search</mat-icon>
+        </mat-form-field>
+    </form>
+    <div class="client_container">
+        <div class="center" *ngIf="Isloading">
+            <mat-spinner mode="indeterminate" [diameter]="50"></mat-spinner>
+        </div>
+        <ng-container *ngFor="let client of instances">
+            <button *ngIf="!Isloading" mat-button class="client_btn" [ngClass]="{active: client?.name == data.active_instance}" [mat-dialog-close]="client" (click)="selectInstance(client)">
+                {{client?.name}}
+            </button>
+        </ng-container>
+    </div>
+
+</mat-dialog-content>

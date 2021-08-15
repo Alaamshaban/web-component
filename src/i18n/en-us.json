@@ -1,0 +1,16 @@
+{
+	"Actions": "Actions",
+	"Add": "Add",
+	"Bookmarks": "Bookmarks",
+	"Close": "Close",
+	"Invalid URL": "Invalid URL",
+	"Name": "Name",
+	"Name is required": "Name is required",
+	"Select Shortcut": "Select Shortcut",
+	"Shortcut": "Shortcut",
+	"Shortcut is required": "Shortcut is required",
+	"URL": "URL",
+	"URL is required": "URL is required",
+	"Update": "Update",
+	"confirmation_messg": "Are you sure you want to apply this action?"
+}

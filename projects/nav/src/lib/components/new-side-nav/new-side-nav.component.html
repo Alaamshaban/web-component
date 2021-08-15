@@ -1,0 +1,56 @@
+<mat-sidenav-container>
+    <mat-sidenav id="style-3" id="side-nav-container" [opened]="navData.isOpenedByDefault" #newsidenav
+        [mode]="(isMobileResolution$ | async)? 'over' : navData.mode">
+        <section class="main--container">
+            <!-- First level -->
+            <div class="first--level">
+                <div class="first--level--items" *ngFor="let mainPage of mainPages">
+                    <div class="first--item" [ngClass]="{'--active':mainPage.selected}"
+                        (click)="getSubPages(mainPage,'first')" id="{{formatTitles(mainPage.title)}}">
+                        {{mainPage.title}}</div>
+                </div>
+            </div>
+            <!-- second level OR last Level-->
+            <div class="second--level">
+                <div class="title" *ngIf="isLast" (click)="getSubPages(mainPage,'first')">
+                    <ng-container *ngIf="language!=='ar'">
+                        <mat-icon (click)="getSubPages(mainPage,'first')">keyboard_backspace</mat-icon>
+                        <div class="second-title">{{seconedLevelTitle}}</div>
+                    </ng-container>
+                    <ng-container *ngIf="language==='ar'">
+                        <div class="second-title">{{seconedLevelTitle}}</div>
+                        <mat-icon (click)="getSubPages(mainPage,'first')">keyboard_backspace</mat-icon>
+                    </ng-container>
+                </div>
+                <div [ngClass]="{'second--item':!isLast, 'last--items':isLast,'selected':page.selected}"
+                    *ngFor="let page of subPages" (click)="getSubPages(page,'seconed')">
+                    <div class="title" id="{{formatTitles(mainPage.title)+'-'+subTitle+formatTitles(page.title)}}">
+                        {{page.title}}</div>
+                    <ng-container *ngIf="page.pages && page.pages.length>0">
+                        <mat-icon *ngIf="!isLast && language!=='ar'" id="chevron_right">keyboard_arrow_right</mat-icon>
+                        <mat-icon *ngIf="!isLast && language==='ar'" id="chevron_left">keyboard_arrow_left</mat-icon>
+                    </ng-container>
+                </div>
+            </div>
+        </section>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="container-fluid">
+            <button *ngIf="(isMobileResolution$ | async)" class="move-back" (click)="toggleSidenav()">
+                <mat-icon [ngClass]="{'chevron-right':language==='ar', 'chevron-left' : language!=='ar'}" id="chevron_left">keyboard_backspace</mat-icon>
+                <div>
+                    <span class="date-container" id="page-name">{{currentPageTitle}}</span>
+                </div>
+            </button>
+            <ng-container *ngIf="!navData.showIframe">
+                <router-outlet>
+                    <ng-content></ng-content>
+                </router-outlet>
+            </ng-container>
+            <mat-spinner *ngIf="isLoading" id="iframe-loader"></mat-spinner>
+            <iframe [hidden]="isLoading" [src]="navData.path | safe" id="page-iframe" WIDTH='80%' HEIGHT='100%' #iframe
+                frameborder="0">
+            </iframe>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
