@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NavDataModel } from '../../models/nav.model';
 import { Observable } from 'rxjs';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -17,7 +17,7 @@ export class NewSideNavComponent implements OnInit, AfterViewInit {
   @Input() language: string;
   @Input() changeLanguage;
   @ViewChild('newsidenav') newsidenav: MatSidenav;
-  @ViewChild('iframe') iframe: ElementRef;
+
   mainPages = new Array<NavItemModel>();
   subPages = new Array<NavItemModel>();
   isLast: boolean;
@@ -57,11 +57,9 @@ export class NewSideNavComponent implements OnInit, AfterViewInit {
       this.SubPages = page.pages;
     } else {
       this.isLoading = true;
-      this.iframe.nativeElement.src = this.navData.path;
       this.goToPath(page);
       this.changeLanguage.subscribe(res => {
         this.isLoading = true;
-        this.iframe.nativeElement.src = this.navData.path;
       });
     }
   }
@@ -91,10 +89,6 @@ export class NewSideNavComponent implements OnInit, AfterViewInit {
     if (window.innerWidth < 767) {
       this.navService.closeSideNav();
     }
-    const iframe = this.iframe.nativeElement;
-    iframe.addEventListener('load', () => {
-      this.isLoading = false;
-    });
     this.currentPageTitle = item.title;
   }
 

@@ -28,7 +28,7 @@ export class NavService {
     apps: [],
   });
   private navData$ = this.navData.asObservable();
-  path = new BehaviorSubject({ path: '', showIframe: false });
+  path = new BehaviorSubject({ path: '' });
   private isMobileResolution: BehaviorSubject<boolean> = new BehaviorSubject(window.innerWidth < 767 ? true : false);
   private sidenav: MatSidenav;
 
@@ -116,30 +116,21 @@ export class NavService {
         this.makePageSelected(this.getPages(), item);
       });
     }
-
-    // check if path will open in iframe or not
-    if (item.type === 'TS') {
-      this.getNavData().subscribe(res => {
-        res.showIframe = false;
-      });
-      this.path.next({ path: item.path, showIframe: false });
-    } else {
-      if (item.confirm) {
-        const applyAction = confirm(this.translateService.instant('confirmation_messg'));
-        if (applyAction) {
-          this.getNavData().subscribe(res => {
-            res.src = item.path;
-            res.showIframe = true;
-          });
+    this.path.next({ path: item.path });
+        // check if path will open in iframe or not
+        if (item.type === 'HMS') {
+          if (item.confirm) {
+            const applyAction = confirm(this.translateService.instant('confirmation_messg'));
+            if (!applyAction) {
+              return;
+            }
+          }
         }
-      } else {
-        this.getNavData().subscribe(res => {
-          res.showIframe = true;
-          res.src = item.path;
-        });
-      }
-      this.path.next({ path: item.path, showIframe: true });
-    }
+        this.path.next({ path: item.path});
+  }
+
+  getIframeSrc(path: string): NavItemModel {
+    return this.getPages().find(page => page.path === path);
   }
 
   getIsMobileResolution(): Observable<boolean> {

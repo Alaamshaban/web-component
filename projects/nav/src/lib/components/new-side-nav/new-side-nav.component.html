@@ -37,20 +37,13 @@
     <mat-sidenav-content>
         <div class="container-fluid">
             <button *ngIf="(isMobileResolution$ | async)" class="move-back" (click)="toggleSidenav()">
-                <mat-icon [ngClass]="{'chevron-right':language==='ar', 'chevron-left' : language!=='ar'}" id="chevron_left">keyboard_backspace</mat-icon>
+                <mat-icon [ngClass]="{'chevron-right':language==='ar', 'chevron-left' : language!=='ar'}"
+                    id="chevron_left">keyboard_backspace</mat-icon>
                 <div>
                     <span class="date-container" id="page-name">{{currentPageTitle}}</span>
                 </div>
             </button>
-            <ng-container *ngIf="!navData.showIframe">
-                <router-outlet>
-                    <ng-content></ng-content>
-                </router-outlet>
-            </ng-container>
-            <mat-spinner *ngIf="isLoading" id="iframe-loader"></mat-spinner>
-            <iframe [hidden]="isLoading" [src]="navData.path | safe" id="page-iframe" WIDTH='80%' HEIGHT='100%' #iframe
-                frameborder="0">
-            </iframe>
+                <ng-content></ng-content>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

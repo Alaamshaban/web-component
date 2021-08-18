@@ -76,40 +76,30 @@
             </mat-toolbar>
         </ng-container>
     </div>
-    <ng-container *ngIf="navData.showSideNav && navData.sideNavType==='default'">
-        <mat-sidenav-container>
-            <mat-sidenav id="style-3" id="side-nav-container" [opened]="navData.isOpenedByDefault" #sidenav
-                [mode]="(isMobileResolution$ | async)? 'over' : navData.mode ">
-                <div class="brand page-title">
-                    <a [routerLink]="navData.path">{{navData.title}}</a>
+    <mat-sidenav-container *ngIf="navData.showSideNav && navData.sideNavType==='default'">
+        <mat-sidenav id="style-3" id="side-nav-container" [opened]="navData.isOpenedByDefault" #sidenav
+            [mode]="(isMobileResolution$ | async)? 'over' : navData.mode ">
+            <div class="brand page-title">
+                <a [routerLink]="navData.path">{{navData.title}}</a>
+            </div>
+            <mat-nav-list>
+                <div *ngFor="let navItem of navData.sideNav">
+                    <cloudinn-sidenav-item [navItem]="navItem"></cloudinn-sidenav-item>
                 </div>
-                <mat-nav-list>
-                    <div *ngFor="let navItem of navData.sideNav">
-                        <cloudinn-sidenav-item [navItem]="navItem"></cloudinn-sidenav-item>
-                    </div>
-                </mat-nav-list>
-            </mat-sidenav>
-            <mat-sidenav-content>
-                <div class="container-fluid">
-                    <ng-container *ngIf="!navData.showIframe">
-                        <router-outlet>
-                            <ng-content></ng-content>
-                        </router-outlet>
-                    </ng-container>
-                    <div *ngIf="navData.showIframe">
-                        <iframe [src]="navData.path | safe" WIDTH='80%' HEIGHT='100%' frameborder="0">
-                        </iframe>
-                    </div>
-                </div>
-            </mat-sidenav-content>
-        </mat-sidenav-container>
-    </ng-container>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class="container-fluid">
+                <ng-content select=".default"></ng-content>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 
+    <cloudinn-new-side-nav [navData]="navData" [language]="languages[0]?.code" [changeLanguage]="changeLanguage"
+        [isMobileResolution$]="isMobileResolution$" *ngIf="navData.showSideNav && navData.sideNavType==='new'">
+        <ng-content select=".new"></ng-content>
+    </cloudinn-new-side-nav>
 
-    <ng-container *ngIf="navData.showSideNav && navData.sideNavType==='new'">
-            <cloudinn-new-side-nav [navData]="navData" [language]="languages[0]?.code" [changeLanguage]="changeLanguage" [isMobileResolution$]="isMobileResolution$">
-            </cloudinn-new-side-nav>
-    </ng-container>
 
     <!-- responsive menu-->
     <mat-menu #dropMenu="matMenu">

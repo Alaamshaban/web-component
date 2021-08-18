@@ -21,8 +21,6 @@ export * from './lib/components/new-side-nav/new-side-nav.component';
 export * from './lib/models/nav.model';
 export * from './lib/models/user.model';
 
-export * from './lib/pipes/safe-pipe';
-
 export * from './lib/validators/validators';
 
 

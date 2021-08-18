@@ -25,7 +25,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CookieModule } from 'ngx-cookie';
 import { SidenavItemComponent } from './components/sidenav-item/sidenav-item.component';
-import { SafePipe } from './pipes/safe-pipe';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DeleteBoookmarkDaialogComponent } from './components/delete-boookmark-daialog/delete-boookmark-daialog.component';
@@ -75,7 +74,6 @@ import { NewSideNavComponent } from './components/new-side-nav/new-side-nav.comp
     SidenavItemComponent,
     DeleteBoookmarkDaialogComponent,
     ShowBookmarksComponent,
-    SafePipe,
     NewSideNavComponent,
   ],
   entryComponents: [

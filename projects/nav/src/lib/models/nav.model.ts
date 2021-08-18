@@ -1,6 +1,7 @@
 export interface NavItemModel {
   title: string;
   path: string;
+  src?: string;
   icon?: string;
   queries?: { [k: string]: any };
   pages?: NavItemModel[];
@@ -15,7 +16,6 @@ export interface NavItemModel {
 
 export interface NavDataModel {
   title: string;
-  src?: string;
   showIframe?: boolean;
   showSideNav: boolean;
   isSideMode?: boolean;
